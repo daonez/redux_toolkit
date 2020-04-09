@@ -2,7 +2,7 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 const toDos = createSlice({
   name: "toDosReducer",
-  inititalState: [],
+  initialState: [],
   reducers: {
     add: (state, action) => {
       state.push({ text: action.payload, id: Date.now() });
@@ -11,7 +11,6 @@ const toDos = createSlice({
   },
 });
 
-const store = configureStore({ reducer: toDos.reducer });
 export const { add, remove } = toDos.actions;
 
-export default store;
+export default configureStore({ reducer: toDos.reducer });
